@@ -27,7 +27,6 @@ class TextCleaner:
         logger.info("Starting text cleaning.")
 
         text = self._remove_page_artifacts(text)
-        text = self._lowercase(text)
         text = self._normalize_bullets(text)
         text = self._remove_special_characters(text)
         text = self._normalize_spaces(text)
@@ -37,9 +36,6 @@ class TextCleaner:
 
     def _remove_page_artifacts(self, text: str) -> str:
         return text.replace("\x0c", "\n")
-
-    def _lowercase(self, text: str) -> str:
-        return text.lower()
 
     def _normalize_bullets(self, text: str) -> str:
         return self.BULLET_PATTERN.sub("- ", text)
