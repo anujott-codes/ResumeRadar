@@ -87,17 +87,6 @@ class SectionSegmenter:
 
                 return name
 
-        for line in lines[:5]:
-            stripped = line.strip()
-
-            if (
-                stripped
-                and 1 < len(stripped.split()) <= 4
-                and not re.search(r"[\d@|]", stripped)
-            ):
-                logger.debug("Name detected using fallback heuristic.")
-                return stripped
-
         logger.debug("Name not found.")
         return None
 
