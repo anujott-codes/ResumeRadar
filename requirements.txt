@@ -6,3 +6,4 @@ pymupdf
 spacy
 transformers
 torch
+sentence_transformers
