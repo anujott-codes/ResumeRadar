@@ -2,6 +2,7 @@ from typing import List
 
 # HuggingFace model
 HF_MODEL_NAME = "feliponi/hirly-ner-multi"
+THRESHOLD = 0.75
 
 # Inference settings
 DEVICE = -1
@@ -12,7 +13,7 @@ STRIP_PUNCT = True
 
 # Basic stopwords to remove noise
 SKILL_BLACKLIST: List[str] = [
-    # --- Generic Resume Structure Words ---
+    #     Generic Resume Structure Words
     "company",
     "team",
     "project",
@@ -41,7 +42,7 @@ SKILL_BLACKLIST: List[str] = [
     "involvement",
     "participation",
     "exposure",
-    # --- Action/Verb Nominalizations (resume filler) ---
+    #     Action/Verb Nominalizations (resume filler)
     "development",
     "implementation",
     "management",
@@ -79,7 +80,7 @@ SKILL_BLACKLIST: List[str] = [
     "optimizing",
     "streamlining",
     "automating",
-    # --- ML/Stats Metrics (quantitative results, not skills) ---
+    #     ML/Stats Metrics (quantitative results, not skills)
     "accuracy",
     "precision",
     "recall",
@@ -111,7 +112,7 @@ SKILL_BLACKLIST: List[str] = [
     "decrease",
     "gain",
     "drop",
-    # --- Business/Org Filler ---
+    #     Business/Org Filler
     "organization",
     "organisation",
     "department",
@@ -148,27 +149,27 @@ SKILL_BLACKLIST: List[str] = [
     "headcount",
     "capacity",
     "bandwidth",
-    # --- Vague Soft Skill Phrases ---
+    #     Vague Soft Skill Phrases
     "communication",
     "collaboration",
     "teamwork",
     "leadership",
-    "problem-solving",
-    "critical-thinking",
-    "decision-making",
-    "time-management",
+    "problem solving",
+    "critical thinking",
+    "decision making",
+    "time management",
     "multitasking",
     "adaptability",
     "flexibility",
     "proactive",
-    "self-motivated",
-    "detail-oriented",
-    "fast-learner",
-    "quick-learner",
-    "result-oriented",
-    "goal-oriented",
-    "team-player",
-    "work-ethic",
+    "self motivated",
+    "detail oriented",
+    "fast learner",
+    "quick learner",
+    "result oriented",
+    "goal oriented",
+    "team player",
+    "work ethic",
     "ownership",
     "accountability",
     "integrity",
@@ -181,7 +182,7 @@ SKILL_BLACKLIST: List[str] = [
     "professionalism",
     "punctuality",
     "initiative",
-    # --- Education/Certification Artifacts ---
+    #     Education/Certification Artifacts
     "degree",
     "bachelor",
     "master",
@@ -208,7 +209,7 @@ SKILL_BLACKLIST: List[str] = [
     "dissertation",
     "capstone",
     "curriculum",
-    # --- Time & Duration ---
+    #     Time & Duration
     "years",
     "months",
     "weeks",
@@ -229,7 +230,7 @@ SKILL_BLACKLIST: List[str] = [
     "past",
     "future",
     "since",
-    # --- Quantity / Scale Words ---
+    #     Quantity / Scale Words
     "million",
     "billion",
     "thousand",
@@ -254,7 +255,7 @@ SKILL_BLACKLIST: List[str] = [
     "main",
     "significant",
     "substantial",
-    # --- Preposition / Article Artifacts (NER false positives) ---
+    #     Preposition / Article Artifacts (NER false positives)
     "using",
     "via",
     "across",
@@ -270,7 +271,7 @@ SKILL_BLACKLIST: List[str] = [
     "enabled",
     "powered",
     "specific",
-    "end-to-end",
+    "end to end",
     "end",
     "side",
     "level",
@@ -285,7 +286,7 @@ SKILL_BLACKLIST: List[str] = [
     "component",
     "service",
     "system",
-    # --- Generic Tech Buzzwords (too vague to match JD skills) ---
+    #     Generic Tech Buzzwords (too vague to match JD skills)
     "solution",
     "solutions",
     "platform",
@@ -306,7 +307,7 @@ SKILL_BLACKLIST: List[str] = [
     "design",
     "approach",
     "methodology",
-    "best-practices",
+    "best practices",
     "standards",
     "guidelines",
     "documentation",
@@ -318,7 +319,7 @@ SKILL_BLACKLIST: List[str] = [
     "principles",
     "techniques",
     "methods",
-    # --- Miscellaneous Noise ---
+    #     Miscellaneous Noise
     "general",
     "its",
     "ote",
@@ -338,8 +339,8 @@ SKILL_BLACKLIST: List[str] = [
     "excellent",
     "strong",
     "proven",
-    "hands-on",
-    "real-world",
+    "hands on",
+    "real world",
     "industry",
     "domain",
     "sector",
@@ -350,7 +351,7 @@ SKILL_BLACKLIST: List[str] = [
     "scale",
     "context",
     "scenario",
-    "use-case",
+    "use case",
     "usecase",
     "example",
     "sample",
@@ -364,7 +365,7 @@ SKILL_BLACKLIST: List[str] = [
     "upgrade",
     "migration",
     "setup",
-    # --- Interpersonal / HR Buzzwords ---
+    #     Interpersonal / HR Buzzwords
     "culture",
     "values",
     "vision",
@@ -381,14 +382,14 @@ SKILL_BLACKLIST: List[str] = [
     "offboarding",
     "interview",
     "feedback",
-    "performance-review",
+    "performance review",
     "appraisal",
     "kpi",
     "okr",
 ]
 
 ROLE_WORDS = {
-    # --- Engineering & Technical ---
+    #     Engineering & Technical
     "engineer",
     "developer",
     "programmer",
@@ -411,7 +412,7 @@ ROLE_WORDS = {
     "reliability",
     "automation",
     "implementation",
-    # --- Data & AI/ML ---
+    #     Data & AI/ML
     "data",
     "scientist",
     "analyst",
@@ -428,7 +429,7 @@ ROLE_WORDS = {
     "intelligence",
     "mining",
     "visualization",
-    # --- Design & Creative ---
+    #     Design & Creative
     "designer",
     "artist",
     "illustrator",
@@ -451,7 +452,7 @@ ROLE_WORDS = {
     "ceramicist",
     "sculptor",
     "muralist",
-    # --- Product & Project ---
+    #     Product & Project
     "product",
     "project",
     "program",
@@ -463,7 +464,7 @@ ROLE_WORDS = {
     "roadmap",
     "owner",
     "manager",
-    # --- Management & Leadership ---
+    #     Management & Leadership
     "manager",
     "director",
     "head",
@@ -487,13 +488,13 @@ ROLE_WORDS = {
     "associate",
     "staff",
     "founder",
-    "co-founder",
+    "co founder",
     "ceo",
     "cto",
     "coo",
     "cfo",
     "ciso",
-    # --- Business & Strategy ---
+    #     Business & Strategy
     "business",
     "strategy",
     "strategist",
@@ -504,7 +505,7 @@ ROLE_WORDS = {
     "innovation",
     "venture",
     "entrepreneur",
-    # --- Sales & Marketing ---
+    #     Sales & Marketing
     "sales",
     "marketing",
     "growth",
@@ -521,7 +522,7 @@ ROLE_WORDS = {
     "engagement",
     "advertiser",
     "promotions",
-    # --- Finance & Accounting ---
+    #     Finance & Accounting
     "finance",
     "accountant",
     "auditor",
@@ -544,7 +545,7 @@ ROLE_WORDS = {
     "broker",
     "underwriter",
     "financial",
-    # --- HR & Talent ---
+    #     HR & Talent
     "hr",
     "human",
     "resource",
@@ -562,7 +563,7 @@ ROLE_WORDS = {
     "engagement",
     "people",
     "organizational",
-    # --- Customer & Support ---
+    #     Customer & Support
     "customer",
     "support",
     "service",
@@ -576,7 +577,7 @@ ROLE_WORDS = {
     "relations",
     "advocate",
     "care",
-    # --- Legal & Compliance ---
+    #     Legal & Compliance
     "legal",
     "counsel",
     "attorney",
@@ -598,7 +599,7 @@ ROLE_WORDS = {
     "mediator",
     "prosecutor",
     "defender",
-    # --- Healthcare & Medicine ---
+    #     Healthcare & Medicine
     "doctor",
     "physician",
     "nurse",
@@ -661,7 +662,7 @@ ROLE_WORDS = {
     "prosthetist",
     "orthotist",
     "perfusionist",
-    # --- Mental Health & Social Work ---
+    #     Mental Health & Social Work
     "social",
     "worker",
     "caseworker",
@@ -671,7 +672,7 @@ ROLE_WORDS = {
     "rehabilitation",
     "behaviorist",
     "interventionist",
-    # --- Education & Academia ---
+    #     Education & Academia
     "teacher",
     "professor",
     "lecturer",
@@ -702,7 +703,7 @@ ROLE_WORDS = {
     "coach",
     "mentor",
     "teaching",
-    # --- Aviation & Aerospace ---
+    #     Aviation & Aerospace
     "pilot",
     "captain",
     "copilot",
@@ -729,7 +730,7 @@ ROLE_WORDS = {
     "operations",
     "aeronautical",
     "flight",
-    # --- Maritime & Navy ---
+    #     Maritime & Navy
     "sailor",
     "seaman",
     "mariner",
@@ -747,7 +748,7 @@ ROLE_WORDS = {
     "diver",
     "submariner",
     "vessel",
-    # --- Military & Defense ---
+    #     Military & Defense
     "soldier",
     "officer",
     "sergeant",
@@ -770,7 +771,7 @@ ROLE_WORDS = {
     "armorer",
     "medic",
     "chaplain",
-    # --- Law Enforcement & Security ---
+    #     Law Enforcement & Security
     "police",
     "detective",
     "inspector",
@@ -792,7 +793,7 @@ ROLE_WORDS = {
     "immigration",
     "agent",
     "operative",
-    # --- Fire & Emergency Services ---
+    #     Fire & Emergency Services
     "firefighter",
     "fireman",
     "paramedic",
@@ -802,7 +803,7 @@ ROLE_WORDS = {
     "dispatcher",
     "emergency",
     "crisis",
-    # --- IT & Systems ---
+    #     IT & Systems
     "administrator",
     "sysadmin",
     "network",
@@ -816,7 +817,7 @@ ROLE_WORDS = {
     "systems",
     "cybersecurity",
     "incident",
-    # --- Supply Chain & Logistics ---
+    #     Supply Chain & Logistics
     "supply",
     "chain",
     "logistics",
@@ -837,7 +838,7 @@ ROLE_WORDS = {
     "driver",
     "trucker",
     "fleet",
-    # --- Construction, Civil & Architecture ---
+    #     Construction, Civil & Architecture
     "civil",
     "mechanical",
     "electrical",
@@ -869,7 +870,7 @@ ROLE_WORDS = {
     "hvac",
     "landscaper",
     "site",
-    # --- Agriculture, Environment & Forestry ---
+    #     Agriculture, Environment & Forestry
     "farmer",
     "agronomist",
     "horticulturist",
@@ -891,7 +892,7 @@ ROLE_WORDS = {
     "soil",
     "environmental",
     "wildlife",
-    # --- Science & Research ---
+    #     Science & Research
     "physicist",
     "astronomer",
     "astrophysicist",
@@ -907,7 +908,7 @@ ROLE_WORDS = {
     "crystallographer",
     "spectroscopist",
     "lab",
-    # --- Media, Journalism & Communication ---
+    #     Media, Journalism & Communication
     "journalist",
     "reporter",
     "correspondent",
@@ -930,7 +931,7 @@ ROLE_WORDS = {
     "narrator",
     "host",
     "presenter",
-    # --- Arts & Entertainment ---
+    #     Arts & Entertainment
     "actor",
     "actress",
     "performer",
@@ -954,7 +955,7 @@ ROLE_WORDS = {
     "model",
     "influencer",
     "streamer",
-    # --- Sports & Fitness ---
+    #     Sports & Fitness
     "athlete",
     "coach",
     "trainer",
@@ -967,7 +968,7 @@ ROLE_WORDS = {
     "sports",
     "fitness",
     "wellness",
-    # --- Hospitality, Food & Tourism ---
+    #     Hospitality, Food & Tourism
     "chef",
     "cook",
     "sous",
@@ -994,7 +995,7 @@ ROLE_WORDS = {
     "event",
     "planner",
     "catering",
-    # --- Retail & E-commerce ---
+    #     Retail & E commerce
     "cashier",
     "associate",
     "merchandiser",
@@ -1004,7 +1005,7 @@ ROLE_WORDS = {
     "loss",
     "prevention",
     "retail",
-    # --- Real Estate & Property ---
+    #     Real Estate & Property
     "realtor",
     "broker",
     "appraiser",
@@ -1013,7 +1014,7 @@ ROLE_WORDS = {
     "mortgage",
     "escrow",
     "title",
-    # --- Research & Consulting ---
+    #     Research & Consulting
     "consultant",
     "advisor",
     "specialist",
@@ -1022,7 +1023,7 @@ ROLE_WORDS = {
     "evaluator",
     "auditor",
     "assessor",
-    # --- Religion & Spiritual ---
+    #     Religion & Spiritual
     "priest",
     "pastor",
     "minister",
@@ -1034,7 +1035,7 @@ ROLE_WORDS = {
     "missionary",
     "theologian",
     "clergy",
-    # --- Skilled Trades & Craftsmen ---
+    #     Skilled Trades & Craftsmen
     "tailor",
     "cobbler",
     "jeweler",
@@ -1046,7 +1047,7 @@ ROLE_WORDS = {
     "silversmith",
     "upholsterer",
     "florist",
-    # --- Generic Seniority / Contract Type ---
+    #     Generic Seniority / Contract Type
     "intern",
     "trainee",
     "apprentice",
@@ -1058,8 +1059,8 @@ ROLE_WORDS = {
     "distinguished",
     "fellow",
     "emeritus",
-    "part-time",
-    "full-time",
+    "part time",
+    "full time",
     "contract",
     "freelance",
     "volunteer",

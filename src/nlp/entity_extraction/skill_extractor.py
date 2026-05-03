@@ -10,6 +10,7 @@ from src.config.skill_extractor_config import (
     ROLE_WORDS,
     SKILL_BLACKLIST,
     STRIP_PUNCT,
+    THRESHOLD,
 )
 from src.logging.logging import get_logger
 
@@ -51,6 +52,11 @@ class SkillExtractor:
         for ent in entities:
             label = ent.get("entity_group", "")
             word = ent.get("word", "").strip()
+            score = ent.get("score", 0.0)
+
+            if score < THRESHOLD:
+                logger.debug(f"Filtered (low confidence {score:.2f}): {word}")
+                continue
 
             if not self._is_skill_label(label):
                 continue
@@ -85,6 +91,7 @@ class SkillExtractor:
         if STRIP_PUNCT:
             text = re.sub(r"[^\w\s\-\+\.#]", "", text)
 
+        text = re.sub(r"-+", " ", text).strip()
         text = re.sub(r"\s+", " ", text).strip()
 
         return text
