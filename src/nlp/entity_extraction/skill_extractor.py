@@ -82,7 +82,7 @@ class SkillExtractor:
 
     def _is_skill_label(self, label: str) -> bool:
         label = label.lower()
-        return "skill" in label
+        return "skill" in label and "soft" not in label
 
     def _normalize(self, text: str) -> str:
         if LOWERCASE:
