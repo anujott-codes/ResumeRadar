@@ -120,9 +120,3 @@ class DataProcessor:
         self.process_split(
             self.config.test_data_input_path, self.config.test_data_output_path
         )
-
-
-if __name__ == "__main__":
-    config = ProcessorConfig()
-    processor = DataProcessor(config)
-    processor.run()

@@ -37,9 +37,3 @@ class DataLoader:
         self.save_training_data(dataset)
         self.save_validation_data(dataset)
         self.save_test_data(dataset)
-
-
-if __name__ == "__main__":
-    config = LoaderConfig()
-    loader = DataLoader(config)
-    loader.run()

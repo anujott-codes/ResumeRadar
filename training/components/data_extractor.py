@@ -62,9 +62,3 @@ class SkillExtractor:
         self.save(train_skills, self.config.train_data_output_path)
         self.save(val_skills, self.config.validation_data_output_path)
         self.save(test_skills, self.config.test_data_output_path)
-
-
-if __name__ == "__main__":
-    config = ExtractorConfig()
-    extractor = SkillExtractor(config)
-    extractor.run()
