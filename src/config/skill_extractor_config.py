@@ -10,6 +10,7 @@ DEVICE = -1
 # Skill normalization
 LOWERCASE = True
 STRIP_PUNCT = True
+CONTEXT_WINDOW = 150
 
 # Basic stopwords to remove noise
 SKILL_BLACKLIST: List[str] = [
