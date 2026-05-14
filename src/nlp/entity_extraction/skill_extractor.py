@@ -3,8 +3,8 @@ from typing import Dict, List, Tuple
 
 from transformers import pipeline
 
-from src.config.hard_skills_whitelist import HARD_SKILLS_WHITELIST
-from src.config.skill_extractor_config import (
+from nlp.config.hard_skills_whitelist import HARD_SKILLS_WHITELIST
+from nlp.config.skill_extractor_config import (
     CONTEXT_WINDOW,
     DEVICE,
     HF_MODEL_NAME,

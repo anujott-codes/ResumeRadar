@@ -1,4 +1,4 @@
-from src.config.base_config import SAMPLE_JD_TEXT, SAMPLE_RESUME_PDF_PATH
+from nlp.config.base_config import SAMPLE_JD_TEXT, SAMPLE_RESUME_PDF_PATH
 from src.nlp.classification.skill_classifier import SkillClassifier
 from src.nlp.embeddings.embedding_generator import EmbeddingGenerator
 from src.nlp.entity_extraction.skill_extractor import SkillExtractor

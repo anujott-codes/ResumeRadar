@@ -3,14 +3,14 @@ from typing import Optional
 
 import spacy
 
-from nlp.schema.segmentation_response_schema import ResumeSegments
-from src.config.segmentation_config import (
+from nlp.config.segmentation_config import (
     EMAIL_PATTERN,
     HEADER_MAX_WORDS,
     PHONE_PATTERN,
     SECTION_HEADER_MAP,
     SPACY_MODEL,
 )
+from nlp.schema.segmentation_response_schema import ResumeSegments
 from src.logging.logging import get_logger
 
 logger = get_logger(__name__)

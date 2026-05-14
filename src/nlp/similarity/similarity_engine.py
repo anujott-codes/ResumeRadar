@@ -2,7 +2,7 @@ from typing import Any, Dict, List
 
 import numpy as np
 
-from src.config.similarity_config import SimilarityConfig
+from nlp.config.similarity_config import SimilarityConfig
 
 
 class SimilarityEngine:
