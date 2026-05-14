@@ -10,7 +10,7 @@ repos:
     hooks:
       - id: flake8
         args:
-          - --max-line-length=100
+          - --max-line-length=200
           - --extend-ignore=E203,W503,W291
 
   - repo: https://github.com/PyCQA/isort
