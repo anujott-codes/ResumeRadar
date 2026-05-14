@@ -3,6 +3,7 @@ from typing import Optional
 
 import spacy
 
+from nlp.schema.segmentation_response_schema import ResumeSegments
 from src.config.segmentation_config import (
     EMAIL_PATTERN,
     HEADER_MAX_WORDS,
@@ -11,7 +12,6 @@ from src.config.segmentation_config import (
     SPACY_MODEL,
 )
 from src.logging.logging import get_logger
-from src.schema.segmentation_response_schema import ResumeSegments
 
 logger = get_logger(__name__)
 
