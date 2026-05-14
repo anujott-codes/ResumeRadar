@@ -1,4 +1,3 @@
-from nlp.config.base_config import SAMPLE_JD_TEXT, SAMPLE_RESUME_PDF_PATH
 from src.nlp.classification.skill_classifier import SkillClassifier
 from src.nlp.embeddings.embedding_generator import EmbeddingGenerator
 from src.nlp.entity_extraction.skill_extractor import SkillExtractor
@@ -70,9 +69,3 @@ class NLPPipeline:
             resume_soft_embeddings=resume["soft_embeddings"],
             jd_soft_embeddings=jd["soft_embeddings"],
         )
-
-
-if __name__ == "__main__":
-    pipeline = NLPPipeline()
-    result = pipeline.analyze(SAMPLE_RESUME_PDF_PATH, SAMPLE_JD_TEXT)
-    print(result)

@@ -3,9 +3,9 @@ from typing import Dict, List, Tuple
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-from nlp.config.hard_skills_whitelist import HARD_SKILLS_WHITELIST
-from nlp.config.skill_classifier_config import SkillClassifierConfig
 from src.logging.logging import get_logger
+from src.nlp.config.hard_skills_whitelist import HARD_SKILLS_WHITELIST
+from src.nlp.config.skill_classifier_config import SkillClassifierConfig
 
 logger = get_logger(__name__)
 

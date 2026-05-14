@@ -3,8 +3,9 @@ from typing import Dict, List, Tuple
 
 from transformers import pipeline
 
-from nlp.config.hard_skills_whitelist import HARD_SKILLS_WHITELIST
-from nlp.config.skill_extractor_config import (
+from src.logging.logging import get_logger
+from src.nlp.config.hard_skills_whitelist import HARD_SKILLS_WHITELIST
+from src.nlp.config.skill_extractor_config import (
     CONTEXT_WINDOW,
     DEVICE,
     HF_MODEL_NAME,
@@ -14,7 +15,6 @@ from nlp.config.skill_extractor_config import (
     STRIP_PUNCT,
     THRESHOLD,
 )
-from src.logging.logging import get_logger
 
 logger = get_logger(__name__)
 

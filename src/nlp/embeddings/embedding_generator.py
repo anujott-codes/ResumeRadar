@@ -3,7 +3,7 @@ from typing import List
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-from nlp.config.embedding_generator_config import EmbeddingConfig
+from src.nlp.config.embedding_generator_config import EmbeddingConfig
 
 
 class EmbeddingGenerator:
