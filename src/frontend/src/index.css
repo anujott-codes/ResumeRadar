@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased bg-slate-50 text-slate-900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-sm border border-white/80 shadow-xl rounded-2xl;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 to-blue-400 bg-clip-text text-transparent;
+  }
+
+  /* Skill chip */
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200;
+  }
+
+  .chip-matched {
+    @apply chip bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100;
+  }
+
+  .chip-missing {
+    @apply chip bg-red-50 text-red-700 border border-red-200 hover:bg-red-100;
+  }
+
+  .chip-soft {
+    @apply chip bg-violet-50 text-violet-700 border border-violet-200 hover:bg-violet-100;
+  }
+
+  /* Score ring container */
+  .score-ring-track {
+    stroke: #e2e8f0;
+    stroke-width: 10;
+    fill: none;
+  }
+
+  .score-ring-fill {
+    stroke-width: 10;
+    fill: none;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Upload zone */
+  .upload-zone {
+    @apply relative border-2 border-dashed border-slate-200 rounded-2xl p-10 text-center cursor-pointer
+      transition-all duration-300 hover:border-brand-400 hover:bg-brand-50/30;
+  }
+
+  .upload-zone.drag-over {
+    @apply border-brand-500 bg-brand-50 scale-[1.01];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
