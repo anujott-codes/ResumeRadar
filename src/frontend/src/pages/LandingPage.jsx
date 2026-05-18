@@ -61,7 +61,7 @@ const STEPS = [
 
 /* ── Social proof stats ── */
 const STATS = [
-  { value: "98%", label: "Parsing Accuracy" },
+  { value: "Fast & Accurate", label: "Resume Parsing" },
   { value: "<2s", label: "Analysis Time" },
   { value: "5MB", label: "Max Resume Size" },
   { value: "Free", label: "No Sign-up Needed" },
