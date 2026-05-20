@@ -27,8 +27,7 @@ AutoTokenizer.from_pretrained('feliponi/hirly-ner-multi'); \
 AutoModel.from_pretrained('feliponi/hirly-ner-multi'); \
 print('All models cached.')"
 
-COPY ./src/backend ./src/backend
-COPY ./src/nlp ./src/nlp
+COPY ./src ./src
 
 COPY ./artifacts/model ./artifacts/model
 
