@@ -1,0 +1,126 @@
+# Python 
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg
+*.egg-info/
+dist/
+build/
+wheels/
+pip-wheel-metadata/
+.eggs/
+MANIFEST
+
+# Virtual Environments 
+.venv/
+venv/
+env/
+ENV/
+.env/
+
+# Environment & Secrets 
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ── HuggingFace / Model Artifacts ────────────────────────────────────────────
+# Exclude locally cached models (they'll be downloaded at build or runtime)
+.cache/
+~/.cache/huggingface/
+huggingface_cache/
+hf_cache/
+model_cache/
+
+# Large model weight files (uncomment if you don't COPY models into image)
+# *.bin
+# *.safetensors
+# *.pt
+# *.pth
+# *.onnx
+# *.gguf
+
+# Data & Notebooks 
+data/raw/
+data/interim/
+data/processed/
+notebooks/
+*.ipynb
+*.ipynb_checkpoints/
+.ipynb_checkpoints/
+
+# MLOps & Experiment Tracking 
+mlruns/
+mlartifacts/
+.dvc/
+.dvcignore
+dvc.lock
+runs/
+outputs/
+artifacts/*
+!artifacts/model
+checkpoints/
+
+# Testing 
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+tests/
+test_*
+
+# Linting / Formatting 
+.ruff_cache/
+.mypy_cache/
+.black_cache/
+
+# macOS 
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE & Editors 
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+*.sublime-project
+*.sublime-workspace
+
+# Git 
+.git/
+.gitignore
+.gitattributes
+
+# Docker 
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Docs & Misc 
+docs/
+*.md
+README*
+LICENSE
+CHANGELOG*
+*.log
+logs/
+tmp/
+temp/
