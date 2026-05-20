@@ -21,15 +21,15 @@ RUN python -m spacy download en_core_web_sm
 
 RUN python -c "\
 from sentence_transformers import SentenceTransformer; \
-from transformers import AutoTokenizer, AutoModel; \
+from transformers import AutoTokenizer, AutoModel, AutoModelForSequenceClassification; \
 SentenceTransformer('BAAI/bge-small-en-v1.5'); \
 AutoTokenizer.from_pretrained('feliponi/hirly-ner-multi'); \
 AutoModel.from_pretrained('feliponi/hirly-ner-multi'); \
+AutoTokenizer.from_pretrained('anujot/resumeradar-skill-classifier'); \
+AutoModelForSequenceClassification.from_pretrained('anujot/resumeradar-skill-classifier'); \
 print('All models cached.')"
 
 COPY ./src ./src
-
-COPY ./artifacts/model ./artifacts/model
 
 EXPOSE 8000
 
