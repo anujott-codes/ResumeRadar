@@ -4,6 +4,7 @@ import os
 import numpy as np
 import torch
 from datasets import ClassLabel, load_dataset
+from huggingface_hub import upload_folder
 from sklearn.utils.class_weight import compute_class_weight
 from torch import nn
 from transformers import (
@@ -114,6 +115,12 @@ class ModelTrainer:
 
         with open(f"{self.config.model_output_dir}/threshold.json", "w") as f:
             json.dump({"threshold": self.config.threshold}, f)
+
+        upload_folder(
+            folder_path=self.config.model_output_dir,
+            repo_id="anujot/resumeradar-skill-classifier",
+            repo_type="model",
+        )
 
         return trainer
 
