@@ -280,7 +280,7 @@ export default function ResultPage() {
             </div>
             <div>
               <h3 className="font-bold text-slate-900">Improvement Suggestions</h3>
-              <p className="text-xs text-slate-400">AI-generated tips to strengthen your application</p>
+              <p className="text-xs text-slate-400">Tips to strengthen your application</p>
             </div>
           </div>
 
